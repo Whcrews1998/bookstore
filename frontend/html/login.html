@@ -1,19 +1,48 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/login.css">
-        <title>Login Page</title>
-    </head>
-    <body>
-        <div class="container">
-            <form action="/api/login" method="post">
-                <h2>Login</h2>
-                <input type="text" name="username" placeholder="Enter username">
-                <input type="password" name="password" placeholder="Enter password">
-                <button>Submit</button>
-            </form>
-        </div>
-    </body>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/login.css">
+    <title>Login Page</title>
+</head>
+
+<body>
+    <div class="container">
+        <form id="loginForm" action="/api/login" method="post">
+            <h2>Login</h2>
+            <input type="text" name="username" placeholder="Enter username">
+            <input type="password" name="password" placeholder="Enter password">
+            <button>Submit</button>
+        </form>
+    </div>
+</body>
+<script type="module">
+
+    const formElement = document.getElementById("loginForm");
+    try {
+        formElement.addEventListener("submit", async e => {
+            e.preventDefault();
+            const form = e.target;
+            const data = new URLSearchParams(new FormData(form));
+
+            const res = await fetch("/api/login", {
+                method: "POST",
+                body: data,
+                credentials: "include"
+            });
+
+            if (res.ok) location.replace("/index.html");
+            else { formElement.reset(); alert("Login failed"); }
+
+
+        });
+    } catch (err) {
+        alert("Login failed");
+        console.error(err);
+    }
+
+</script>
+
 </html>
