@@ -7,5 +7,5 @@ import com.whcrews.bookstore.model.Users;
 
 @Repository
 public interface UserRepository extends JpaRepository<Users, Long> {
-
+    Users findByUsername(String username);
 }
