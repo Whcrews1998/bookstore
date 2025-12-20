@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/register.css">
+    <title>Register Page</title>
+</head>
+
+<body>
+    <div class="container">
+        <form id="registerForm" action="/api/register" method="post">
+            <h2>Register</h2>
+            <input type="text" name="username" placeholder="Enter username">
+            <input type="password" name="password" placeholder="Enter password">
+            <button>Submit</button>
+            <a href="/html/login.html" class="loginButton">Login</a>
+        </form>
+    </div>
+</body>
+<script type="module">
+    const formElement = document.getElementById("registerForm");
+    formElement.addEventListener("submit", async e => {
+        e.preventDefault();
+        const form = e.target;
+        const username = form.elements.username.value;
+        const password = form.elements.password.value;
+        const payload = {username, password};
+        
+        try {
+            const res = await fetch("/api/register", {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify(payload)
+            });
+
+            if (res.ok) {
+                console.log("Registration successful!");
+                alert("Regristration successful!");
+                window.location.href = "/html/login.html";
+            } else {
+                const error = await res.text();
+                console.error("Regristration failed: " + error);
+                alert("Regristratino failed: " + error);
+                formElement.reset();
+            }
+        } catch(error) {
+            console.error(error);
+            alert("Exception Caught! Could be network issue!");
+            formElement.reset();
+        }
+    })
+</script>
+<html>
