@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="/css/login.css">
     <title>Login Page</title>
 </head>
 
@@ -15,6 +15,7 @@
             <input type="text" name="username" placeholder="Enter username">
             <input type="password" name="password" placeholder="Enter password">
             <button>Submit</button>
+            <a href="/html/register.html" class="registerButton">Register</a>
         </form>
     </div>
 </body>
@@ -33,7 +34,7 @@
                 credentials: "include"
             });
 
-            if (res.ok) location.replace("/index.html");
+            if (res.ok) window.location.href = "/html/index.html";
             else { formElement.reset(); alert("Login failed"); }
 
 

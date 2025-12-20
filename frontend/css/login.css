@@ -13,6 +13,7 @@
 
 html, body {
     height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .container {
@@ -49,6 +50,7 @@ input {
 }
 
 button {
+    font-size: 0.8em;
     background-color: white;
     margin-top: 1em;
     border-radius: 5px;
@@ -57,5 +59,21 @@ button {
 }
 
 button:hover {
+    background-color: rgb(204, 203, 203);
+}
+
+.registerButton {
+    font-size: 0.8em;
+    background-color: white;
+    padding: 0.5em;
+    text-decoration: none;
+    text-align: center;
+    color: black;
+    border-radius: 5px;
+    cursor: default;
+}
+
+
+.registerButton:hover {
     background-color: rgb(204, 203, 203);
 }

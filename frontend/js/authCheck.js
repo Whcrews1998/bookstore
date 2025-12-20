@@ -3,7 +3,7 @@ try {
 
     if (!res.ok) {
         // Auth failure or server error
-        location.replace("./login.html");
+        window.location.href = "/html/login.html";
         console.log("Failure!");
     } else {
         // Auth OK → allow UI
@@ -13,7 +13,7 @@ try {
 
 } catch (err) {
     // Network / CORS / unexpected error
-    location.replace("./login.html");
+    window.location.href = "/html/login.html";
     console.log("Failure with exception!");
 }
 
