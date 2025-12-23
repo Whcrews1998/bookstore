@@ -32,7 +32,7 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .headers(headers -> headers.frameOptions(frameOption -> frameOption.disable()))
                 .authorizeHttpRequests(request -> request
-                        .requestMatchers("/register", "/login")
+                        .requestMatchers("/register", "/login", "/images/**")
                         .permitAll()
                         .anyRequest().authenticated())
                 .formLogin(form -> form
