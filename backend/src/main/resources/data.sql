@@ -1,1 +1,13 @@
-INSERT INTO USERS (username, password) VALUES ('harris', 'crews');
+INSERT INTO BOOK (author, title, cover_image_name) VALUES ('Megan Dowd Lambert', 'A Crow Of His Own', 'a-crow-of-his-own-ejk-seal-hires.png');
+INSERT INTO BOOK (author, title, cover_image_name) VALUES ('Dana Alison Levy', 'Above All Else', 'above-all-else-cover-hires.jpg');
+INSERT INTO BOOK (author, title, cover_image_name) VALUES ('David Biedrzycki', 'Alien Alert', 'Alien Alert_300.jpg');
+INSERT INTO BOOK (author, title, cover_image_name) VALUES ('Ruth Spiro', 'Baby Loves Gravity', 'baby-loves-gravity-hires.jpg');
+INSERT INTO BOOK (author, title, cover_image_name) VALUES ('Shelley Fraser Mickle', 'Borrowing Life', 'borrowing-life-cvr-hires.jpg');
+INSERT INTO BOOK (author, title, cover_image_name) VALUES ('Jonathan Beagle', 'Boston A Visual History', 'boston-a-visual-history-hires.jpg');
+INSERT INTO BOOK (author, title, cover_image_name) VALUES ('David Biedrzycki', 'Bear Alert', 'breaking-news-bear-alert-hires.jpg');
+INSERT INTO BOOK (author, title, cover_image_name) VALUES ('Jane Petrlik Smolik', 'Currents', 'currents-hires.jpg');
+INSERT INTO BOOK (author, title, cover_image_name) VALUES ('Karol Ruth Silverstein', 'Cursed', 'cursed-hires.jpg');
+INSERT INTO BOOK (author, title, cover_image_name) VALUES ('Ahmad Joudeh', 'Dance Or Die', 'dance-or-die-cover-hires.jpg');
+INSERT INTO BOOK (author, title, cover_image_name) VALUES ('Joanne O''Sullivan', 'A Dog Walks Into A Bar', 'dog-walks-into-a-bar-hires.jpg');
+INSERT INTO BOOK (author, title, cover_image_name) VALUES ('Nanette Heffernan', 'Earth Hour', 'EARTH-HOUR-cover.jpg');
+INSERT INTO BOOK (author, title, cover_image_name) VALUES ('Jane Godwin', 'Found You!', 'found-you-cover-hires.jpg');
