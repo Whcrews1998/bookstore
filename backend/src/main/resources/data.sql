@@ -1,4 +1,4 @@
-INSERT INTO BOOK (author, title, cover_image_name) VALUES ('Megan Dowd Lambert', 'A Crow Of His Own', 'a-crow-of-his-own-ejk-seal-hires.png');
+INSERT INTO BOOK (author, title, cover_image_name) VALUES ('Megan Dowd Lambert', 'A Crow Of His Own', 'a-crow-of-his-own-ejk-seal-hires.jpg');
 INSERT INTO BOOK (author, title, cover_image_name) VALUES ('Dana Alison Levy', 'Above All Else', 'above-all-else-cover-hires.jpg');
 INSERT INTO BOOK (author, title, cover_image_name) VALUES ('David Biedrzycki', 'Alien Alert', 'Alien Alert_300.jpg');
 INSERT INTO BOOK (author, title, cover_image_name) VALUES ('Ruth Spiro', 'Baby Loves Gravity', 'baby-loves-gravity-hires.jpg');
