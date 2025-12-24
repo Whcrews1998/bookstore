@@ -7,5 +7,4 @@ import com.whcrews.bookstore.model.Book;
 
 @Repository
 public interface BookRepository extends JpaRepository<Book, Long> {
-
 }
