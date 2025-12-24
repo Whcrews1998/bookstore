@@ -39,4 +39,13 @@ public class Book {
     this.author = author;
   }
 
+  public String getCoverImageName() {
+    return coverImageName;
+  }
+
+  public void setCoverImageName(String coverImageName) {
+    this.coverImageName = coverImageName;
+  }
+
+
 }
