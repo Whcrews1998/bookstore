@@ -18,9 +18,43 @@ html, body {
 
 .container {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
     background-color: var(--background-color);
+}
+
+.navbar {
+    padding: 2rem;
+    background-color: var(--secondary-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.storeName {
+    color: var(--text-color);
+    font-size: x-large;
+}
+
+.navbarCards {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.navbarCard {
+    color: var(--text-color);
+    background-color: var(--primary-color);
+    padding: 1em;
+    border-radius: 5px;
+    font-size: large;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.navbarCard:hover {
+    color: var(--primary-color);
+    background-color: var(--background-color);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px rgba(0,0,0,0.2);
 }
 
 .bookList {
@@ -59,6 +93,7 @@ html, body {
     max-height: 100%;
     margin-bottom: 25px;
     border-radius: 5px;
+    border: 2px solid black;
 }
 
 .bookCard > h3, p {
