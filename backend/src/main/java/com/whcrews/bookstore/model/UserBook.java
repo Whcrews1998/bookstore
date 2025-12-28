@@ -25,6 +25,9 @@ public class UserBook {
 	@JoinColumn(name = "book_id", nullable = false)
 	private Book book;
 
+	public UserBook() {
+	}
+
 	public UserBook(Users user, Book book) {
 		this.user = user;
 		this.book = book;
