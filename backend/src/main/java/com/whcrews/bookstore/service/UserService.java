@@ -15,39 +15,52 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserService implements UserDetailsService {
 
-    @Autowired
-    UserRepository userRepository;
+	@Autowired
+	UserRepository userRepository;
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Users user = userRepository.findByUsername(username);
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		Users user = userRepository.findByUsername(username);
 
-        if (user == null) {
-            String errorMessage = "User " + username + " was not found!";
-            System.out.println(errorMessage);
-            throw new UsernameNotFoundException(errorMessage);
-        }
+		if (user == null) {
+			String errorMessage = "User " + username + " was not found!";
+			System.out.println(errorMessage);
+			throw new UsernameNotFoundException(errorMessage);
+		}
 
-        return user;
-    }
+		return user;
+	}
 
+	public Users getCurrentUser() {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		UserDetails userDetails = (UserDetails) auth.getPrincipal();
+		Users user = userRepository.findByUsername(userDetails.getUsername());
 
-    public Users register(Users user) {
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-        return userRepository.save(user);
-    }
+		if (user == null) {
+			String errorMessage = "User " + userDetails.getUsername() + " was not found!";
+			System.out.println(errorMessage);
+			throw new UsernameNotFoundException(errorMessage);
+		}
 
-    public boolean verified() {
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		return user;
+	}
 
-       return auth.isAuthenticated();
-    }
+	public Users register(Users user) {
+		user.setPassword(passwordEncoder.encode(user.getPassword()));
+		return userRepository.save(user);
+	}
 
-    public boolean doesUsernameExist(String username) {
-        Users user = userRepository.findByUsername(username);
-        return user != null;
-    }
+	public boolean verified() {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+
+		return auth.isAuthenticated();
+	}
+
+	public boolean doesUsernameExist(String username) {
+		Users user = userRepository.findByUsername(username);
+		return user != null;
+	}
 }
