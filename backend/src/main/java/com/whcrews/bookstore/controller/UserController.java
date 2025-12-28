@@ -52,6 +52,6 @@ public class UserController {
 	@GetMapping("my-books")
 	public ResponseEntity<?> getMyBooks() {
 		Users user = userService.getCurrentUser();
-		return ResponseEntity.ok(userBookService.getUserBooks(user));
+		return ResponseEntity.ok(userBookService.getUserBookList(user));
 	}
 }
