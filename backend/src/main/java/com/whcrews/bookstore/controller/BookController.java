@@ -46,6 +46,11 @@ public class BookController {
 		return bookService.getAllBooks();
 	}
 
+	@PostMapping("/return")
+	public ResponseEntity<?> returnBook(@RequestBody Book book) {
+		return null;
+	}
+
 	@PostMapping("/checkout")
 	public ResponseEntity<?> checkout(@RequestBody Book book) {
 		book = bookService.find(book.getAuthor(), book.getTitle());
@@ -56,6 +61,9 @@ public class BookController {
 
 		Users user = userService.getCurrentUser();
 		UserBook userBook = new UserBook(user, book);
+
+		user.getUserBookSet().add(userBook);
+		book.getUserBookSet().add(userBook);
 
 		userBookService.saveUserBook(userBook);
 		return ResponseEntity.ok("Book successfully checked out.");

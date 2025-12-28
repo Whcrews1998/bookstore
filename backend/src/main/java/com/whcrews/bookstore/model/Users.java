@@ -11,6 +11,8 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
@@ -18,12 +20,14 @@ import java.util.Set;
 
 @Entity
 public class Users implements UserDetails {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String username;
 	private String password;
 
+	@JsonIgnore
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
 	private Set<UserBook> userBookSet = new HashSet<>();
 
@@ -56,5 +60,9 @@ public class Users implements UserDetails {
 	@Override
 	public String getUsername() {
 		return this.username;
+	}
+
+	public Set<UserBook> getUserBookSet() {
+		return userBookSet;
 	}
 }

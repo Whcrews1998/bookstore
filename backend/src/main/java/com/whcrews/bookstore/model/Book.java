@@ -3,6 +3,8 @@ package com.whcrews.bookstore.model;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -19,6 +21,7 @@ public class Book {
 	private String author;
 	private String coverImageName;
 
+	@JsonIgnore
 	@OneToMany(mappedBy = "book")
 	public Set<UserBook> userBookSet = new HashSet<>();
 
@@ -52,6 +55,10 @@ public class Book {
 
 	public void setCoverImageName(String coverImageName) {
 		this.coverImageName = coverImageName;
+	}
+
+	public Set<UserBook> getUserBookSet() {
+		return userBookSet;
 	}
 
 }
