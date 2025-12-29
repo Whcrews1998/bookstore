@@ -39,11 +39,11 @@ function createBookCard(bookData) {
     const author = document.createElement("p");
     author.textContent = bookData.author;
 
-    const checkoutButton = document.createElement("button");
-    checkoutButton.textContent = "Checkout";
-    checkoutButton.addEventListener("click", async () => {
+    const returnButton = document.createElement("button");
+    returnButton.textContent = "Return";
+    returnButton.addEventListener("click", async () => {
         try {
-            const response = await fetch("/api/book/checkout", {
+            const response = await fetch("/api/book/return", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
@@ -53,15 +53,16 @@ function createBookCard(bookData) {
             })
 
             if (!response.ok) {
-                alert("Checkout failed.");
+                alert("Return failed.");
                 const text = await response.text();
                 console.error(text);
                 return;
             }
 
-            alert("Checkout successful!");
+            location.reload();
+            alert("Return successful!");
         } catch (error) {
-            alert("Checkout failed.");
+            alert("Return failed.");
             console.error(error);
         }
     })
@@ -71,12 +72,10 @@ function createBookCard(bookData) {
     const bottomSection = document.createElement("div");
     bottomSection.classList.add("bottomSection");
 
-
-
     topSection.appendChild(img);
     topSection.appendChild(title);
     topSection.appendChild(author);
-    bottomSection.appendChild(checkoutButton);
+    bottomSection.appendChild(returnButton);
 
     bookDiv.appendChild(topSection);
     bookDiv.appendChild(bottomSection);
