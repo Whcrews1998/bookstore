@@ -50,7 +50,7 @@ public class BookController {
 
 		if (book == null) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND)
-					.body("User does not have book assigned to them.");
+					.body("Book was not found.");
 		}
 
 		userBookService.returnUserBook(book);

@@ -11,7 +11,8 @@
     padding: 0;
 }
 
-html, body {
+html,
+body {
     height: 100%;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -54,7 +55,7 @@ html, body {
     color: var(--primary-color);
     background-color: var(--background-color);
     transform: translateY(-2px);
-    box-shadow: 0 10px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
 }
 
 .bookList {
@@ -71,7 +72,7 @@ html, body {
     flex-direction: column;
     flex: 0 1 auto;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     min-width: 150px;
     max-width: 250px;
     padding: 1.5em;
@@ -79,29 +80,43 @@ html, body {
     background-color: var(--primary-color);
     border-radius: 10px;
 
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .bookCard:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 15px rgba(0,0,0,0.2);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
 }
 
-.bookCard > img {
+.bookCard>.topSection>img {
     max-width: 100%;
-    max-height: 100%;
+    max-height: 250px;
     margin-bottom: 25px;
     border-radius: 5px;
     border: 2px solid black;
 }
 
-.bookCard > h3, p {
+.bookCard>.topSection>h3,
+p {
     margin-bottom: 10px;
     text-align: center;
     color: var(--text-color);
 }
 
-.bookCard > h3 {
+.bookCard>.topSection>h3 {
     font-weight: 800;
+}
+
+.bookCard>.bottomSection>button {
+    padding: 1em;
+    background-color: lawngreen;
+    border-style: none;
+    border-radius: 5px;
+    justify-self: flex-end;
+    display: none;
+}
+
+.bookCard:hover>.bottomSection>button {
+    display: inline-block;
 }
