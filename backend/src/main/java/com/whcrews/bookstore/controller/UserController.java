@@ -1,5 +1,6 @@
 package com.whcrews.bookstore.controller;
 
+import com.whcrews.bookstore.model.Roles;
 import com.whcrews.bookstore.model.Users;
 import com.whcrews.bookstore.repository.UserBookRepository;
 import com.whcrews.bookstore.service.UserBookService;
@@ -17,41 +18,42 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class UserController {
-	@Autowired
-	private UserService userService;
+    @Autowired
+    private UserService userService;
 
-	@Autowired
-	private UserBookService userBookService;
+    @Autowired
+    private UserBookService userBookService;
 
-	@GetMapping
-	public String test() {
-		return "Hello World!";
-	}
+    @GetMapping
+    public String test() {
+        return "Hello World!";
+    }
 
-	@GetMapping("/whoami")
-	public String whoami() {
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		return auth.getName();
-	}
+    @GetMapping("/whoami")
+    public String whoami() {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        return auth.getName();
+    }
 
-	@PostMapping("/register")
-	public ResponseEntity<?> register(@RequestBody Users user) {
-		if (userService.doesUsernameExist(user.getUsername())) {
-			return ResponseEntity.status(HttpStatus.CONFLICT).body("Username already exists!");
-		}
+    @PostMapping("/register")
+    public ResponseEntity<?> register(@RequestBody Users user) {
+        if (userService.doesUsernameExist(user.getUsername())) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("Username already exists!");
+        }
 
-		return ResponseEntity.status(HttpStatus.CREATED).body(userService.register(user));
-	}
+        user.getUserRoles().add(Roles.ROLE_USER);
+        return ResponseEntity.status(HttpStatus.CREATED).body(userService.register(user));
+    }
 
-	@GetMapping("/verify")
-	@PreAuthorize("isAuthenticated()")
-	public ResponseEntity<String> verify() {
-		return ResponseEntity.ok("Success");
-	}
+    @GetMapping("/verify")
+    @PreAuthorize("isAuthenticated()")
+    public ResponseEntity<String> verify() {
+        return ResponseEntity.ok("Success");
+    }
 
-	@GetMapping("my-books")
-	public ResponseEntity<?> getMyBooks() {
-		Users user = userService.getCurrentUser();
-		return ResponseEntity.ok(userBookService.getUserBookList(user));
-	}
+    @GetMapping("my-books")
+    public ResponseEntity<?> getMyBooks() {
+        Users user = userService.getCurrentUser();
+        return ResponseEntity.ok(userBookService.getUserBookList(user));
+    }
 }
