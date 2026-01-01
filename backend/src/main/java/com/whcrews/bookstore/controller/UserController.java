@@ -30,9 +30,9 @@ public class UserController {
     }
 
     @GetMapping("/whoami")
-    public String whoami() {
+    public Users whoami() {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        return auth.getName();
+        return (Users) auth.getPrincipal();
     }
 
     @PostMapping("/register")
