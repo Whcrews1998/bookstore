@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/index.css">
     <script type="module" src="/js/authCheck.js"></script>
+    <script type="module" src="/js/whoAmI.js"></script>
     <script type="module" src="/js/loadBooks.js"></script>
 </head>
 
@@ -14,12 +15,24 @@
         <nav class="navbar">
             <div class="storeName">Not So Easy Book Store</div>
             <div class="navbarCards">
-                <a class="navbarCard">Add New Book</a>
+                <a id="addNewBook" class="navbarCard hidden">Add New Book</a>
                 <a href="/html/my-books.html" class="navbarCard">My Books</a>
+                <a class="navbarCard" onclick="logout()">Logout</a>
             </div>
         </nav>
         <div id="bookList" class="bookList"></div>
     </div>
 </body>
+<script>
+    function logout() {
+        fetch("api/logout").then((res) => {
+            if (!res.ok) {
+                alert("Failed to logout");
+                return;
+            }
+            window.location.href = "/html/login.html";
+        });
+    }
+</script>
 
 </html>

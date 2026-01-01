@@ -120,3 +120,7 @@ p {
 .bookCard:hover>.bottomSection>button {
     display: inline-block;
 }
+
+.hidden {
+    display: none;
+}
