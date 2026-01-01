@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/addBook.css">
+    <script type="module" src="/js/authCheck.js"></script>
+    <script type="module" src="/js/logout.js"></script>
+    <script type="module" src="/js/addBook.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <div class="storeName">Simple Book Store</div>
+            <div class="navbarCards">
+                <a href="/html/index.html" class="navbarCard">Home</a>
+                <a href="/html/my-books.html" class="navbarCard">My Books</a>
+                <a id="logout" class="navbarCard">Logout</a>
+            </div>
+        </nav>
+        <div class="form-container">
+            <form id="form-id" enctype="multipart/form-data">
+                <h2> Add New Book </h2>
+                <input type="text" name="title" placeholder="Title" />
+                <input type="text" name="author" placeholder="Author" />
+                <input type="file" name="file" placeholder="Cover Art" />
+                <button type="submit"> Submit </button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

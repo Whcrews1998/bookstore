@@ -1,0 +1,189 @@
+:root {
+    --primary-color: #124559;
+    --secondary-color: #598392;
+    --background-color: #E6B89C;
+    --text-color: #EAD2AC;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--background-color);
+}
+
+.navbar {
+    padding: 2rem;
+    background-color: var(--secondary-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.storeName {
+    color: var(--text-color);
+    font-size: x-large;
+}
+
+.navbarCards {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.navbarCard {
+    color: var(--text-color);
+    background-color: var(--primary-color);
+    padding: 1em;
+    border-radius: 5px;
+    font-size: large;
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-decoration: none;
+}
+
+.navbarCard:hover {
+    color: var(--primary-color);
+    background-color: var(--background-color);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+.emptyState {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+}
+
+.emptyState>p {
+    color: var(--secondary-color);
+}
+
+.bookList {
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 20px;
+}
+
+.bookList>div {
+    align-self: center;
+    text-align: center;
+}
+
+.bookCard {
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    flex: 0 1 auto;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 150px;
+    max-width: 250px;
+    padding: 1.5em;
+    margin: 1em;
+    background-color: var(--primary-color);
+    border-radius: 10px;
+
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.bookCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+.bookCard>.topSection>img {
+    max-width: 100%;
+    max-height: 250px;
+    margin-bottom: 25px;
+    border-radius: 5px;
+    border: 2px solid black;
+}
+
+.bookCard>.topSection>h3,
+p {
+    margin-bottom: 10px;
+    text-align: center;
+    color: var(--text-color);
+}
+
+.bookCard>.topSection>h3 {
+    font-weight: 800;
+}
+
+.bookCard>.bottomSection>button {
+    padding: 1em;
+    background-color: lawngreen;
+    border-style: none;
+    border-radius: 5px;
+    justify-self: flex-end;
+    display: none;
+}
+
+.bookCard:hover>.bottomSection>button {
+    display: inline-block;
+}
+
+.hidden {
+    display: none;
+}
+
+.form-container {
+    margin-top: 2em;
+    display: flex;
+    justify-content: space-around;
+    align-content: space-around;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+
+    padding: 4em;
+    border: 2px solid black;
+    border-radius: 10px;
+
+    background-color: var(--primary-color);
+}
+
+h2 {
+    color: var(--text-color);
+    margin-bottom: 1em;
+}
+
+input {
+    border-style: none;
+    border-radius: 5px;
+    border: 1px solid grey;
+    padding: 0.5em;
+}
+
+button {
+    font-size: 0.8em;
+    background-color: white;
+    margin-top: 1em;
+    border-radius: 5px;
+    border-style: none;
+    padding: 0.5em;
+}
+
+button:hover {
+    background-color: rgb(204, 203, 203);
+}
