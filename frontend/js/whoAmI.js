@@ -11,11 +11,9 @@ async function whoAmI() {
 
         const data = await res.json();
         if (data.userRoles.includes("ROLE_ADMIN")) {
-            alert("User is an admin");
             addNewBook.classList.remove("hidden");
-        } else {
-            alert("User is not an admin");
         }
+
     } catch (error) {
         console.error(error);
     }
