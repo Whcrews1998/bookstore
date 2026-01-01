@@ -8,31 +8,21 @@
     <script type="module" src="/js/authCheck.js"></script>
     <script type="module" src="/js/whoAmI.js"></script>
     <script type="module" src="/js/loadBooks.js"></script>
+    <script type="module" src="/js/logout.js"></script>
 </head>
 
 <body>
     <div class="container">
         <nav class="navbar">
-            <div class="storeName">Not So Easy Book Store</div>
+            <div class="storeName">Simple Book Store</div>
             <div class="navbarCards">
                 <a id="addNewBook" class="navbarCard hidden">Add New Book</a>
                 <a href="/html/my-books.html" class="navbarCard">My Books</a>
-                <a class="navbarCard" onclick="logout()">Logout</a>
+                <a id="logout" class="navbarCard">Logout</a>
             </div>
         </nav>
         <div id="bookList" class="bookList"></div>
     </div>
 </body>
-<script>
-    function logout() {
-        fetch("api/logout").then((res) => {
-            if (!res.ok) {
-                alert("Failed to logout");
-                return;
-            }
-            window.location.href = "/html/login.html";
-        });
-    }
-</script>
 
 </html>
